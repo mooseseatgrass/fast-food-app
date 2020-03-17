@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="/images/carrot_favicon.jpg">
+    <link rel ="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="/app.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+    <title>Fast Food App</title>
 </head>
 <body>
-    
+    <div class="orderHolder">
+        <h2>Order</h2>
+        <form action="/app.js">
+            <label for="order">Order format = item : quantity</label><br><br>
+            <input type="text" id="order" name="order">
+            <input type="submit" value="Submit" id="submitBtn">
+        </form>
+        <h2>Current Order</h2>
+        <p id="showOrder"></p>
+    </div>
 </body>
 </html>
