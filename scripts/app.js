@@ -10,25 +10,34 @@ var menu = {
     "Fruit salad":13
 }
 
-orderArr = [];
+// let orderArr = customerOrder.split(":");
+// orderArr = [];
 
-//displays order on page but changes when another is submitted. fix later
+//query selector worked but display order on page changes when another is submitted. in a list it still shows
 
 submitBtn.addEventListener("click", function(){
-    document.querySelector("#showOrder").innerHTML = customerOrder.value;
-    console.log(customerOrder.value);
-    document.getElementById('order').value='';
+    // document.querySelector("#showOrder").innerHTML = customerOrder.value;
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode(customerOrder.value);
+        node.appendChild(textnode);
+            document.getElementById("showOrder").appendChild(node);
+            console.log(customerOrder.value);
+                document.getElementById('order').value='';
 });
 
-function orderProcessing(customerOrder){
-    customerOrder.split(":");
-    for (var i = 0; i < orderArr.length; i++) {
-        var item = array[i].trim();
-        orderArr.push(item);
-    }
-}
 
-orderProcessing(customerOrder);
+
+// code below is not working
+
+// function orderProcessing(){
+//     customerOrder = customerOrder.split(":");
+//     for (var i = 0; i < orderArr.length; i++) {
+//         var item = array[i].trim();
+//         orderArr.push(item);
+//     };
+// }
+
+// orderProcessing();
 // orderArr.push(customerOrder.split(":"));
 
 

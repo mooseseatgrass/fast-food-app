@@ -14,12 +14,14 @@
     <div class="orderHolder">
         <h2>Order</h2>
         <form name="orderForm">
-            <label for="order">Order format = item : quantity</label><br><br>
+            <label for="orderBox">Order format = item : quantity</label><br><br>
             <input type="text" id="order" name="order">
             <input type="button" value="Submit" id="submitBtn">
         </form>
         <h2>Current Order</h2>
-        <p id="showOrder"></p>
+        <ul>
+            <li id="showOrder"></li>
+        </ul>
     </div>
 
     <script src="app.js"></script>
