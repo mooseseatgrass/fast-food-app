@@ -10,8 +10,12 @@ var menu = {
     "Fruit salad":13
 }
 
-// let orderArr = customerOrder.split(":");
-// orderArr = [];
+// alert(typeof customerOrder);
+// might use some of this example https://gist.github.com/prof3ssorSt3v3/52ebd432bb7b8a155985a2f82509541d
+orderArr = [];
+orderArr.push(customerOrder.toString().split(":"));
+// orderArr.split(/\:/);
+
 
 //query selector worked but display order on page changes when another is submitted. in a list it still shows
 
