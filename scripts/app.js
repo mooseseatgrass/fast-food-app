@@ -1,6 +1,35 @@
+var customerOrder = document.getElementById("order");
 
+var menu = {
+    "Carrot on a stick":6,
+    "Carrot juice":10,
+    "Apple pie":7,
+    "Veggie burger":20,
+    "Coconut milkshake":11,
+    "Avacodo toast":4,
+    "Fruit salad":13
+}
 
+orderArr = [];
 
+//displays order on page but changes when another is submitted. fix later
+
+submitBtn.addEventListener("click", function(){
+    document.querySelector("#showOrder").innerHTML = customerOrder.value;
+    console.log(customerOrder.value);
+    document.getElementById('order').value='';
+});
+
+function orderProcessing(customerOrder){
+    customerOrder.split(":");
+    for (var i = 0; i < orderArr.length; i++) {
+        var item = array[i].trim();
+        orderArr.push(item);
+    }
+}
+
+orderProcessing(customerOrder);
+// orderArr.push(customerOrder.split(":"));
 
 
 
