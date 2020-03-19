@@ -10,14 +10,8 @@ var menu = {
     "Fruit salad":13
 }
 
-// alert(typeof customerOrder);
-// might use some of this example https://gist.github.com/prof3ssorSt3v3/52ebd432bb7b8a155985a2f82509541d
-orderArr = [];
-orderArr.push(customerOrder.toString().split(":"));
-// orderArr.split(/\:/);
-
-
-//query selector worked but display order on page changes when another is submitted. in a list it still shows
+//var orderArr = new Array();
+let orderArr=[];
 
 submitBtn.addEventListener("click", function(){
     // document.querySelector("#showOrder").innerHTML = customerOrder.value;
@@ -27,9 +21,47 @@ submitBtn.addEventListener("click", function(){
             document.getElementById("showOrder").appendChild(node);
             console.log(customerOrder.value);
                 document.getElementById('order').value='';
+},
+    function parseOrder(customerOrder) {
+        return customerOrder.toString()
+        .split(',')
+        .map((x) => x.trim())
+        .flatMap((y) => y.split(':').map((x) => x.trim()));
 });
 
+function addTo() {
+    for (var i = 0; i < orderArr.length; i++){
+    orderArr.push(customerOrder.value);
+    console.log(orderArr)};
+}
 
+addTo();
+
+// for (var i = 0; i < orderArr.length; i++) {
+//             orderArr.push();
+// }
+
+
+// parseOrder(orderArr.push(customerOrder));
+//orderArr.push(customerOrder.toString(customerOrder.value));
+
+// alert(typeof customerOrder);
+// might use some of this example https://gist.github.com/prof3ssorSt3v3/52ebd432bb7b8a155985a2f82509541d
+
+// orderArr.push(customerOrder.toString().split(":"));
+// // orderArr.split(/\:/);
+
+
+//query selector worked but display order on page changes when another is submitted. in a list it still shows
+// submitBtn.addEventListener("click", function(){
+//     // document.querySelector("#showOrder").innerHTML = customerOrder.value;
+//     var node = document.createElement("LI");
+//     var textnode = document.createTextNode(customerOrder.value);
+//         node.appendChild(textnode);
+//             document.getElementById("showOrder").appendChild(node);
+//             console.log(customerOrder.value);
+//                 document.getElementById('order').value='';
+// });
 
 // code below is not working
 
