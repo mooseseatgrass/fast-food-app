@@ -1,4 +1,3 @@
-var customerOrder = document.getElementById("order");
 
 var menu = {
     "Carrot on a stick":6,
@@ -15,12 +14,14 @@ let orderArr=[];
 
 submitBtn.addEventListener("click", function(){
     // document.querySelector("#showOrder").innerHTML = customerOrder.value;
+    var customerOrder = document.querySelector("order");
     var node = document.createElement("LI");
     var textnode = document.createTextNode(customerOrder.value);
         node.appendChild(textnode);
             document.getElementById("showOrder").appendChild(node);
             console.log(customerOrder.value);
                 document.getElementById('order').value='';
+    //showOrder.innerHTML = `<li> ${customerOrder.value} </li>`;
 },
     function parseOrder(customerOrder) {
         return customerOrder.toString()
@@ -36,6 +37,7 @@ function addTo() {
 }
 
 addTo();
+
 
 // for (var i = 0; i < orderArr.length; i++) {
 //             orderArr.push();
@@ -93,3 +95,18 @@ addTo();
 //     }
 //     document.querySelector("#showOrder").innerHTML = division.toFixed(2);
 // };
+
+/*let showOrder = document.getElementById("showOrder");
+
+
+let input = 'Burger: 10, fries: 2, Shake: 1';
+
+let tempArray = input.split(',');
+
+for(ele of tempArray) {
+
+}
+
+
+showOrder.innerHTML = `<li> ${input} </li>`;
+*/
