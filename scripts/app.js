@@ -10,33 +10,53 @@ var menu = {
 }
 
 //var orderArr = new Array();
-let orderArr=[];
+let submitBtn = document.querySelector('#submitBtn');
+let showOrder = document.querySelector('#showOrder');
 
 submitBtn.addEventListener("click", function(){
-    // document.querySelector("#showOrder").innerHTML = customerOrder.value;
-    var customerOrder = document.querySelector("order");
-    var node = document.createElement("LI");
-    var textnode = document.createTextNode(customerOrder.value);
-        node.appendChild(textnode);
-            document.getElementById("showOrder").appendChild(node);
-            console.log(customerOrder.value);
-                document.getElementById('order').value='';
-    //showOrder.innerHTML = `<li> ${customerOrder.value} </li>`;
-},
-    function parseOrder(customerOrder) {
-        return customerOrder.toString()
-        .split(',')
-        .map((x) => x.trim())
-        .flatMap((y) => y.split(':').map((x) => x.trim()));
-});
+    let customerOrder = document.getElementById('order');
+    showOrder.innerHTML = '';
+    showOrder.innerHTML = customerOrder.value;
+    let orderArr = parseOrder(customerOrder.value);
+    // console.log(orderArr);
+    addTo(orderArr);
+    customerOrder.value = '';
+})
+
+function parseOrder(customerOrder) {
+        const parsedObject = [];
+        let parsedOrder = customerOrder
+            .split(',')
+            .map(x => x.trim())
+            .map(z => z.split(':'))
+            .map(y => y.map(x => x.trim()));
+        for(order of parsedOrder) {
+            if(order.length > 2) {
+                console.log('Error...');
+                return false;
+            } else {
+                let obj = {
+                    name: order[0],
+                    qty: Number(order[1])
+                };
+                parsedObject.push(obj);
+            }
+        }
+        return parsedObject;
+};
 
 function addTo() {
-    for (var i = 0; i < orderArr.length; i++){
-    orderArr.push(customerOrder.value);
-    console.log(orderArr)};
-}
+    // for (var i = 0; i < orderArr.length; i++){
+    //     orderArr.push(customerOrder.value);
+    //     console.log(orderArr)
+    // };
+    /**
+     * Check to see if all order names are valid menu items
+     * Check qty and ensure they aren't asking for more than you have qty of
+     * subtract the valid qty they ordered from your menu stock 
+     */
+}; 
 
-addTo();
 
 
 // for (var i = 0; i < orderArr.length; i++) {
@@ -66,7 +86,6 @@ addTo();
 // });
 
 // code below is not working
-
 // function orderProcessing(){
 //     customerOrder = customerOrder.split(":");
 //     for (var i = 0; i < orderArr.length; i++) {
